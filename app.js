@@ -14,7 +14,9 @@ app.get("/", welcome);
 
 const movieHandlers = require("./movieHandlers");
 const usersHandlers = require("./usersHandlers");
+const { hashPassword } = require("./auth.js");
 
+app.post("/api/users", hashPassword, usersHandlers.postUser);
 app.delete("/api/users/:id", usersHandlers.deleteUsers);
 app.delete("/api/movies/:id", movieHandlers.deleteMovie);
 app.put("/api/users/:id", usersHandlers.updateUsers);
