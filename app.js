@@ -15,6 +15,8 @@ app.get("/", welcome);
 const movieHandlers = require("./movieHandlers");
 const usersHandlers = require("./usersHandlers");
 
+app.delete("/api/users/:id", usersHandlers.deleteUsers);
+app.delete("/api/movies/:id", movieHandlers.deleteMovie);
 app.put("/api/users/:id", usersHandlers.updateUsers);
 app.put("/api/movies/:id", movieHandlers.updateMovie);
 app.post("/api/users", usersHandlers.postUser);
